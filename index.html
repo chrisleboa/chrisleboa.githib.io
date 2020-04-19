@@ -40,8 +40,8 @@
         var feature = features[0];
         
         var popup = new mapboxgl.Popup({ offset: [0, -15] })
-            .setLngLat(feature.geometry.coordinates)
-            //.setHTML('<h3>' + feature.properties.Name + '</h3><p>' + feature.properties.Phone + '</p>')
+            .setLngLat([feature.properties.Longitude, feature.properties.Latitude])
+            .setHTML('<h3>' + feature.properties.Name + '</h3><p>' + feature.properties.Phone + '</p>')
             .addTo(map);
         });
     </script>
