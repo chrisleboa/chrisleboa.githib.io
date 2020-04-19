@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>Points on a map</title>
+    <title Bay Area SNAP Map ></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -30,23 +30,6 @@
       center: [-122.188, 37.478596],
       zoom: 10.7
     });
-    // code from the next step will go here
-    map.on('click', function(e) {
-  var features = map.queryRenderedFeatures(e.point, {
-    layers: [`SNAP Accepting Farmers Markets`, `Wic_only_stores`] // replace this with the name of the layer
-  });
-
-  if (!features.length) {
-    return;
-  }
-
-  var feature = features[0];
-
-  var popup = new mapboxgl.Popup({ offset: [0, -15] })
-    .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.Name + '</h3><p>' + feature.properties.Phone + '</p>')
-    .addTo(map);
-});
     </script>
   </body>
 </html>
