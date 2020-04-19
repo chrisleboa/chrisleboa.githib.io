@@ -41,7 +41,7 @@
         
         var popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(marker.geometry.coordinates)
-            .setHTML(`<h3>` + row.Name + `</h3>` + '<h4>' + '<b>' + 'Address: ' + '</b>' + row.Address + '</h4>' + '<h4>' + '<b>' + 'Phone: ' + '</b>' + row.Phone + '</h4>') // use the table to populate your popup with text
+            .setHTML(`<h3>` + marker.property.Name + `</h3>` + '<h4>' + '<b>' + 'Address: ' + '</b>' + marker.property.Address + '</h4>' + '<h4>' + '<b>' + 'Phone: ' + '</b>' + marker.property.Phone + '</h4>') // use the table to populate your popup with text
             .addTo(map);
         });
     </script>
