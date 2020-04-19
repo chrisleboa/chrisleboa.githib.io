@@ -27,13 +27,13 @@
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/chrisleboa/ck973znt454e41ir1au8vx6ah', // replace this with your style URL
-      center: [-87.661557, 41.893748],
+      center: [-122.188, 37.478596],
       zoom: 10.7
     });
     // code from the next step will go here
     map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['SNAP Accepting Farmers Markets'] // replace this with the name of the layer
+    layers: [`SNAP Accepting Farmers Markets`, `Wic_only_stores`] // replace this with the name of the layer
   });
 
   if (!features.length) {
@@ -44,7 +44,7 @@
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.Phone + '</p>')
+    .setHTML('<h3>' + feature.properties.Name + '</h3><p>' + feature.properties.Phone + '</p>')
     .addTo(map);
 });
     </script>
