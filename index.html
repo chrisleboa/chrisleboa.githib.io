@@ -34,14 +34,14 @@
         var features = map.queryRenderedFeatures(e.point, {
             layers: ['stores'] // replace this with the name of the layer
         });
-        //if (!features.length) {
-        //    return;
-        //}
+        if (!features.length) {
+            return;
+        }
         var feature = features[0];
         
         var popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(marker.geometry.coordinates)
-            .setHTML(`<h3>` + p.Name + `</h3>` + '<h4>' + '<b>' + 'Address: ' + '</b>' + p.Address + '</h4>' + '<h4>' + '<b>' + 'Phone: ' + '</b>' + p.Phone + '</h4>') // use the table to populate your popup with text
+            .setHTML(`<h3>` + features.p.Name + `</h3>` + '<h4>' + '<b>' + 'Address: ' + '</b>' + features.p.Address + '</h4>' + '<h4>' + '<b>' + 'Phone: ' + '</b>' + p.Phone + '</h4>') // use the table to populate your popup with text
             .addTo(map);
         });
     </script>
